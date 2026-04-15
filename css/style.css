@@ -1,0 +1,313 @@
+/* First Call Digital — standalone brochure page */
+:root {
+  --bg: #0c1117;
+  --bg-elevated: #141b24;
+  --text: #e8edf4;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dim: rgba(56, 189, 248, 0.12);
+  --border: rgba(148, 163, 184, 0.15);
+  --radius: 12px;
+  --font: "DM Sans", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.wrap {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(12, 17, 23, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.15rem;
+  background: var(--accent);
+  color: #0c1117 !important;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none !important;
+  font-size: 0.95rem;
+}
+
+.nav-cta:hover {
+  filter: brightness(1.08);
+}
+
+/* Hero */
+.hero {
+  padding: clamp(3rem, 8vw, 5rem) 0;
+  background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(56, 189, 248, 0.15), transparent);
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  max-width: 18ch;
+}
+
+.hero-lead {
+  margin: 0 0 1.75rem;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 52ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0c1117;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+  background: var(--bg-elevated);
+}
+
+/* Sections */
+section {
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+}
+
+section h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+  letter-spacing: -0.02em;
+}
+
+.section-intro {
+  margin: 0 0 1.75rem;
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+
+.grid-3 {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.25rem;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.card .icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.35rem;
+}
+
+/* Steps */
+.steps {
+  counter-reset: step;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 800px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.35rem;
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.step h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.step p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Note box */
+.note {
+  background: var(--accent-dim);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.35rem;
+  margin-top: 1.5rem;
+}
+
+.note strong {
+  color: var(--text);
+}
+
+.note p {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* CTA band */
+.cta-band {
+  background: linear-gradient(135deg, var(--bg-elevated) 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.cta-band h2 {
+  margin: 0 0 0.5rem;
+}
+
+.cta-band p {
+  margin: 0 0 1.25rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .site-footer .wrap {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
